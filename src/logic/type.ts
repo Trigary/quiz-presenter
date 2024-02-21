@@ -38,6 +38,9 @@ export class TypeManager {
 }
 
 class TypeData {
-  constructor(public type: QuestionType, public parser: TypeParser, public renderer: Component) {
-  }
+  constructor(
+    public type: QuestionType,
+    public parser: TypeParser,
+    public renderer: Component
+  ) {}
 }

@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import type { DisplayableContent } from '@/logic/entity'
 
 const props = defineProps<{
@@ -10,6 +10,4 @@ const props = defineProps<{
   {{ props.content.rawText }}
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,7 +1,6 @@
-class Key<T> {
-}
+class Key<T> {}
 
-export type ImportErrorData = { title: string, message: string, cause: unknown | null }
+export type ImportErrorData = { title: string; message: string; cause: unknown | null }
 export const importErrorKey = new Key<ImportErrorData>()
 
 const data = new Map<Key<any>, any>()

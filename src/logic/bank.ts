@@ -57,9 +57,9 @@ export class QuestionBank {
 }
 
 export interface NextQuestionStrategy {
-  getCurrent(): Question | null;
+  getCurrent(): Question | null
 
-  advance(currentVerdict: AnswerVerdict): void;
+  advance(currentVerdict: AnswerVerdict): void
 
-  getCountRemaining(): number;
+  getCountRemaining(): number
 }

@@ -1,13 +1,13 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { RouterView } from 'vue-router'
 </script>
 
 <template>
   <v-layout>
-    <v-app-bar title='Quiz Presenter'>
+    <v-app-bar title="Quiz Presenter">
       <template v-slot:append>
-        <v-btn text='Home' to='/' />
-        <v-btn text='GitHub' href='https://github.com/TODO/TODO' />
+        <v-btn text="Home" to="/" />
+        <v-btn text="GitHub" href="https://github.com/TODO/TODO" />
       </template>
     </v-app-bar>
 
@@ -17,6 +17,4 @@ import { RouterView } from 'vue-router'
   </v-layout>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

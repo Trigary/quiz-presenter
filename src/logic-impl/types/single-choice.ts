@@ -5,7 +5,10 @@ import { DisplayableContent } from '@/logic/entity'
 export class SingleChoiceQuestion implements Question {
   readonly type: QuestionType = 'single-choice'
 
-  constructor(public readonly question: DisplayableContent, public readonly choices: SingleChoiceAnswer[]) {
+  constructor(
+    public readonly question: DisplayableContent,
+    public readonly choices: SingleChoiceAnswer[]
+  ) {
     if (choices.filter((choice) => choice.correct).length !== 1) {
       throw new Error('exactly one correct choice is required')
     }
@@ -13,8 +16,10 @@ export class SingleChoiceQuestion implements Question {
 }
 
 export class SingleChoiceAnswer implements Answer {
-  constructor(public readonly content: DisplayableContent, public readonly correct: boolean) {
-  }
+  constructor(
+    public readonly content: DisplayableContent,
+    public readonly correct: boolean
+  ) {}
 }
 
 type SingleChoiceJson = {
@@ -31,7 +36,9 @@ export class SingleChoiceParser implements TypeParser {
     //TODO this doesn't validate that choice.correct is a boolean, does it?
     return new SingleChoiceQuestion(
       new DisplayableContent(json.question),
-      json.choices.map((choice) => new SingleChoiceAnswer(new DisplayableContent(choice.content), choice.correct))
+      json.choices.map(
+        (choice) => new SingleChoiceAnswer(new DisplayableContent(choice.content), choice.correct)
+      )
     )
   }
 }

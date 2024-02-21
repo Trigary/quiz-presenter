@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import type { FlashCardQuestion } from '@/logic-impl/types/flash-card'
 import ContentDisplayer from '@/logic-impl/types/common/ContentDisplayer.vue'
 import ControlButton from '@/components/ControlButton.vue'
@@ -19,16 +19,18 @@ const revealed = ref(false)
 </script>
 
 <template>
-  <ContentDisplayer :content='props.question.question' />
-  <ContentDisplayer v-if='revealed' :content='props.question.answer.content' />
+  <ContentDisplayer :content="props.question.question" />
+  <ContentDisplayer v-if="revealed" :content="props.question.answer.content" />
 
-  <RevealButton v-model='revealed' />
-  <div v-if='revealed'>
-    <ControlButton activation_key='ArrowLeft' @click='advance(AnswerVerdict.Wrong)'>LEFT Wrong</ControlButton>
-    <ControlButton activation_key='ArrowRight' @click='advance(AnswerVerdict.Correct)'>RIGHT Correct</ControlButton>
+  <RevealButton v-model="revealed" />
+  <div v-if="revealed">
+    <ControlButton activation_key="ArrowLeft" @click="advance(AnswerVerdict.Wrong)"
+      >LEFT Wrong</ControlButton
+    >
+    <ControlButton activation_key="ArrowRight" @click="advance(AnswerVerdict.Correct)"
+      >RIGHT Correct</ControlButton
+    >
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

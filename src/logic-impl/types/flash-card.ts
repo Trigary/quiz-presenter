@@ -5,13 +5,14 @@ import { DisplayableContent } from '@/logic/entity'
 export class FlashCardQuestion implements Question {
   readonly type: QuestionType = 'flash-card'
 
-  constructor(public readonly question: DisplayableContent, public readonly answer: FlashCardAnswer) {
-  }
+  constructor(
+    public readonly question: DisplayableContent,
+    public readonly answer: FlashCardAnswer
+  ) {}
 }
 
 export class FlashCardAnswer implements Answer {
-  constructor(public readonly content: DisplayableContent) {
-  }
+  constructor(public readonly content: DisplayableContent) {}
 }
 
 type FlashcardJson = {

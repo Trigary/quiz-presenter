@@ -13,10 +13,9 @@ export const useDataStore = defineStore('data', () => {
   function initialize(mainTitle: string, questions: Question[]) {
     title.value = mainTitle
     allQuestions.value = questions.slice() //shallow copy
-    bank.value = reactive(new QuestionBank(
-      allQuestions.value,
-      (q: Question[]) => new SimpleNextQuestionStrategy(q)
-    ))
+    bank.value = reactive(
+      new QuestionBank(allQuestions.value, (q: Question[]) => new SimpleNextQuestionStrategy(q))
+    )
   }
 
   function clear() {

@@ -5,13 +5,17 @@ import { DisplayableContent } from '@/logic/entity'
 export class MultipleChoiceQuestion implements Question {
   readonly type: QuestionType = 'multiple-choice'
 
-  constructor(public readonly question: DisplayableContent, public readonly choices: MultipleChoiceAnswer[]) {
-  }
+  constructor(
+    public readonly question: DisplayableContent,
+    public readonly choices: MultipleChoiceAnswer[]
+  ) {}
 }
 
 export class MultipleChoiceAnswer implements Answer {
-  constructor(public readonly content: DisplayableContent, public readonly correct: boolean) {
-  }
+  constructor(
+    public readonly content: DisplayableContent,
+    public readonly correct: boolean
+  ) {}
 }
 
 type MultipleChoiceJson = {
@@ -28,7 +32,9 @@ export class MultipleChoiceParser implements TypeParser {
     //TODO this doesn't validate that choice.correct is a boolean, does it?
     return new MultipleChoiceQuestion(
       new DisplayableContent(json.question),
-      json.choices.map((choice) => new MultipleChoiceAnswer(new DisplayableContent(choice.content), choice.correct))
+      json.choices.map(
+        (choice) => new MultipleChoiceAnswer(new DisplayableContent(choice.content), choice.correct)
+      )
     )
   }
 }
