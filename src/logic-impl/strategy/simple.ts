@@ -26,8 +26,21 @@ export class SimpleNextQuestionStrategy implements NextQuestionStrategy {
         break
     }
 
-    //TODO pick randomly: 1. with 1/2 probability, 2. with 1/4 probability, 3. with 1/8 probability, ...
-    this.current = this.remaining.shift() || null
+    //Previous, simpler implementation:
+    // this.current = this.remaining.shift() || null
+
+    if (this.remaining.length === 0) {
+      this.current = null
+      return
+    }
+
+    // Pick randomly: [0] with 1/2 probability, [1] with 1/4 probability, [2] with 1/8 probability, ...
+    let r = 1 - Math.random() //random number in range (0, 1]
+    if (r <= 0) r = 1 //safety against floating point errors
+    const l = Math.log(r) / Math.log(0.5) //log_0.5(r)
+    let i = Math.floor(l)
+    if (i >= this.remaining.length) i = 0 //biased towards the first element (because this.remaining has a finite size)
+    this.current = this.remaining.splice(i, 1)[0]
   }
 
   getCountRemaining(): number {
