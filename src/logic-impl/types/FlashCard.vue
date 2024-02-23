@@ -19,24 +19,52 @@ const revealed = ref(false)
 </script>
 
 <template>
-  <ContentDisplayer :content="props.question.question" />
-  <ContentDisplayer v-if="revealed" :content="props.question.answer.content" />
+  <v-container>
+    <v-row justify="center">
+      <v-sheet
+        style="border: 2px solid white"
+        class="pa-2"
+        rounded="shaped"
+        max-width="85%"
+        min-width="25%"
+      >
+        <ContentDisplayer :content="props.question.question" />
+      </v-sheet>
+    </v-row>
 
-  <RevealButton v-model="revealed" />
-  <div v-if="revealed">
-    <ControlButton
-      activation_key="ArrowLeft"
-      @click="advance(AnswerVerdict.Wrong)"
-      prepend_icon="mdi-arrow-left"
-      >Wrong</ControlButton
-    >
-    <ControlButton
-      activation_key="ArrowRight"
-      @click="advance(AnswerVerdict.Correct)"
-      append_icon="mdi-arrow-right"
-      >Correct</ControlButton
-    >
-  </div>
+    <v-row v-if="revealed" justify="center" class="mt-6">
+      <v-sheet
+        style="border: 2px solid white"
+        class="pa-2"
+        rounded="xl"
+        max-width="85%"
+        min-width="25%"
+      >
+        <ContentDisplayer :content="props.question.answer.content" />
+      </v-sheet>
+    </v-row>
+
+    <v-row justify="center" class="mt-6">
+      <RevealButton v-model="revealed" />
+
+      <template v-if="revealed">
+        <ControlButton
+          class="mr-12"
+          activation_key="ArrowLeft"
+          @click="advance(AnswerVerdict.Wrong)"
+          prepend_icon="mdi-arrow-left"
+          >Wrong
+        </ControlButton>
+
+        <ControlButton
+          activation_key="ArrowRight"
+          @click="advance(AnswerVerdict.Correct)"
+          append_icon="mdi-arrow-right"
+          >Correct
+        </ControlButton>
+      </template>
+    </v-row>
+  </v-container>
 </template>
 
 <style scoped></style>

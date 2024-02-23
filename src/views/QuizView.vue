@@ -13,7 +13,7 @@ const questionComponentKey = computed(
 </script>
 
 <template>
-  <v-container>
+  <v-container class="mb-3">
     <v-row justify="center">
       <h1>{{ useDataStore().getTitle().value }}</h1>
     </v-row>
