@@ -20,8 +20,9 @@ const model: Ref<boolean> = defineModel({ required: true })
     @click="model = true"
     :disabled="props.disabled"
     activation_key="ArrowDown"
+    append_icon="mdi-arrow-down"
   >
-    Reveal answer (arrow down)
+    Reveal answer
   </ControlButton>
 </template>
 

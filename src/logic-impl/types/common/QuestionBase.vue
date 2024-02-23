@@ -65,8 +65,9 @@ const revealed = ref(false)
     v-if="props.verdict !== null && revealed"
     activation_key="ArrowDown"
     @click="advance()"
+    append_icon="mdi-arrow-down"
   >
-    DOWN Continue
+    Continue
   </ControlButton>
 </template>
 

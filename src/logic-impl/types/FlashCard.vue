@@ -24,11 +24,17 @@ const revealed = ref(false)
 
   <RevealButton v-model="revealed" />
   <div v-if="revealed">
-    <ControlButton activation_key="ArrowLeft" @click="advance(AnswerVerdict.Wrong)"
-      >LEFT Wrong</ControlButton
+    <ControlButton
+      activation_key="ArrowLeft"
+      @click="advance(AnswerVerdict.Wrong)"
+      prepend_icon="mdi-arrow-left"
+      >Wrong</ControlButton
     >
-    <ControlButton activation_key="ArrowRight" @click="advance(AnswerVerdict.Correct)"
-      >RIGHT Correct</ControlButton
+    <ControlButton
+      activation_key="ArrowRight"
+      @click="advance(AnswerVerdict.Correct)"
+      append_icon="mdi-arrow-right"
+      >Correct</ControlButton
     >
   </div>
 </template>
