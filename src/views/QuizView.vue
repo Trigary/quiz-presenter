@@ -26,13 +26,26 @@ const questionComponentKey = computed(
     :question="bank.getCurrent()"
   />
 
-  <template v-else>Done</template>
+  <v-container v-else>
+    <v-row justify="center">
+      <h3>You are all done! Congratulations!</h3>
+    </v-row>
+  </v-container>
 
-  <ul class="pt-4">
-    <li>Remaining: {{ bank.getCountRemaining() }} out of {{ bank.getCountTotal() }}</li>
-    <li>Correct answers: {{ bank.getCountOfVerdict(AnswerVerdict.Correct) }}</li>
-    <li>Wrong answers: {{ bank.getCountOfVerdict(AnswerVerdict.Wrong) }}</li>
-  </ul>
+  <v-container class="mt-6">
+    <v-row justify="center">
+      <v-sheet rounded="lg" class="stats pa-1" style="border: gray 2px ridge">
+        <h4 class="text-center">Statistics</h4>
+        <p>Remaining questions: {{ bank.getCountRemaining() }} out of {{ bank.getCountTotal() }}</p>
+        <p>Correct answers: {{ bank.getCountOfVerdict(AnswerVerdict.Correct) }}</p>
+        <p>Wrong answers: {{ bank.getCountOfVerdict(AnswerVerdict.Wrong) }}</p>
+      </v-sheet>
+    </v-row>
+  </v-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+.stats p {
+  font-style: italic;
+}
+</style>
