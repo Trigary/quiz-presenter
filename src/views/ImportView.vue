@@ -58,46 +58,53 @@ const loadFile = async () => {
 
 <template>
   <v-container class="pt-9">
-    <v-row class="justify-center">
+    <v-row justify="center">
       <h2>File input</h2>
     </v-row>
-    <v-row class="v-col-12 v-col-md-9 v-col-lg-6 mx-auto">
-      <v-file-input
-        v-model="sourceFile"
-        label="Select a file"
-        accept=".json"
-        :prepend-icon="undefined"
-      />
+    <v-row>
+      <v-col cols="12" md="9" lg="6" class="mx-auto">
+        <v-file-input v-model="sourceFile" label="Select a file" accept=".json" hide-details />
+      </v-col>
     </v-row>
-    <v-row class="justify-center">
+    <v-row justify="center">
       <v-btn @click="loadFile" :disabled="sourceFile.length === 0">Load from file</v-btn>
     </v-row>
   </v-container>
 
-  <v-divider class="mt-4 v-col-9 mx-auto" thickness="4" />
+  <v-divider class="mt-4 mb-2 mx-auto" thickness="4" length="80%" />
 
   <v-container>
-    <v-row class="justify-center">
+    <v-row justify="center">
       <h2>URL input</h2>
     </v-row>
-    <v-row class="v-col-12 v-col-md-9 v-col-lg-6 mx-auto">
-      <v-text-field v-model="sourceUrl" label="Enter a URL" :rules="[urlRule]" />
+    <v-row>
+      <v-col cols="12" md="9" lg="6" class="mx-auto">
+        <v-text-field
+          v-model="sourceUrl"
+          label="Enter a URL"
+          :rules="[urlRule]"
+          prepend-icon="mdi-web"
+        />
+      </v-col>
     </v-row>
-    <v-row class="v-col-12 v-col-md-9 v-col-lg-6 mx-auto pt-0">
-      <v-text-field
-        v-model="convertedUrl"
-        label="Direct URL to loaded data"
-        readonly
-        hide-details
-      />
-      <v-btn
-        @click="copyToClipboard(convertedUrl)"
-        class="ml-4 align-self-center"
-        :disabled="convertedUrl === ''"
-        >Copy
-      </v-btn>
+    <v-row>
+      <v-col cols="12" md="9" lg="6" class="mx-auto pt-0">
+        <v-text-field
+          v-model="convertedUrl"
+          label="Direct URL to loaded data"
+          readonly
+          hide-details
+          variant="outlined"
+        >
+          <template #append>
+            <v-btn @click="copyToClipboard(convertedUrl)" :disabled="convertedUrl === ''"
+              >Copy
+            </v-btn>
+          </template>
+        </v-text-field>
+      </v-col>
     </v-row>
-    <v-row class="justify-center">
+    <v-row justify="center">
       <v-btn @click="loadUrl" :disabled="convertedUrl === ''">Open from URL</v-btn>
     </v-row>
   </v-container>

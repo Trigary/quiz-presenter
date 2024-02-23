@@ -13,7 +13,11 @@ const key = computed(
 </script>
 
 <template>
-  <h1>{{ useDataStore().getTitle() }}</h1>
+  <v-container>
+    <v-row justify="center">
+      <h1>{{ useDataStore().getTitle().value }}</h1>
+    </v-row>
+  </v-container>
 
   <Component
     v-if="bank.hasRemaining()"
@@ -22,7 +26,7 @@ const key = computed(
     :question="bank.getCurrent()"
   />
 
-  <template v-else> Done </template>
+  <template v-else>Done</template>
 
   <ul class="pt-4">
     <li>Remaining: {{ bank.getCountRemaining() }} out of {{ bank.getCountTotal() }}</li>

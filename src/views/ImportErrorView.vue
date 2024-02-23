@@ -6,16 +6,16 @@ const data = takeTempOrThrow(importErrorKey)
 
 <template>
   <v-container>
-    <v-row class="justify-center pt-8">
+    <v-row justify="center" class="pt-8">
       <h2>{{ data.title }}</h2>
     </v-row>
-    <v-row class="justify-center pt-2">
-      <h3>{{ data.message }}</h3>
+    <v-row justify="center" class="pt-2">
+      <h4>{{ data.message }}</h4>
     </v-row>
-    <v-row class="justify-center pt-2" v-if="data.cause !== null">
-      <h3>{{ data.cause }}</h3>
+    <v-row justify="center" class="pt-2" v-if="data.cause !== null">
+      <h4>{{ data.cause }}</h4>
     </v-row>
-    <v-row class="justify-center pt-2">
+    <v-row justify="center" class="pt-2">
       <v-btn to="/">Back to home</v-btn>
     </v-row>
   </v-container>
