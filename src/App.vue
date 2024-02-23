@@ -7,7 +7,7 @@ import { RouterView } from 'vue-router'
     <v-app-bar title="Quiz Presenter">
       <template v-slot:append>
         <v-btn text="Home" to="/" />
-        <v-btn text="GitHub" href="https://github.com/TODO/TODO" />
+        <v-btn text="GitHub" href="https://github.com/Trigary/quiz-presenter" />
       </template>
     </v-app-bar>
 

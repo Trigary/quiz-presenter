@@ -9,6 +9,8 @@ import { importErrorKey, setTemp } from '@/globals/temp-storage'
 import { urlRule } from '@/utils/rules'
 import { copyToClipboard } from '@/utils/clipboard'
 
+const displayProgressSpinner = ref(false)
+
 const handleError = (title: string, message: string, cause: unknown | null = null) => {
   console.error('Handling error: ' + title, message, cause)
   setTemp(importErrorKey, { title, message, cause })
@@ -30,7 +32,7 @@ const loadJson = (rawJson: string) => {
 const sourceUrl = ref((useRoute().query.src as string | undefined) || '')
 const loadUrl = async () => {
   try {
-    //TODO display load spinner
+    displayProgressSpinner.value = true
     const response = await fetch(new URL(sourceUrl.value))
     if (!response.ok) {
       handleError(
@@ -52,6 +54,7 @@ if (sourceUrl.value !== '') loadUrl()
 
 const sourceFile = ref([] as File[])
 const loadFile = async () => {
+  displayProgressSpinner.value = true
   loadJson(await sourceFile.value[0].text())
 }
 </script>
@@ -108,6 +111,31 @@ const loadFile = async () => {
       <v-btn @click="loadUrl" :disabled="convertedUrl === ''">Open from URL</v-btn>
     </v-row>
   </v-container>
+
+  <v-overlay
+    v-if="displayProgressSpinner"
+    :model-value="displayProgressSpinner"
+    class="align-center justify-center delayed"
+  >
+    <v-progress-circular indeterminate size="120" width="6" />
+  </v-overlay>
 </template>
 
-<style scoped></style>
+<style scoped>
+.delayed {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+  animation-delay: 100ms;
+  animation-duration: 500ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
