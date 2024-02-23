@@ -5,11 +5,11 @@ import { computed } from 'vue'
 import typeManager from '@/globals/types'
 
 const bank = useDataStore().getBank()
-const key = computed(
+const questionComponentKey = computed(
   () =>
     bank.value.getCountOfVerdict(AnswerVerdict.Correct) +
     bank.value.getCountOfVerdict(AnswerVerdict.Wrong)
-) // Force re-rendering, TODO is it needed?
+) // Force re-rendering of the question component when the next question should be displayed
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const key = computed(
 
   <Component
     v-if="bank.hasRemaining()"
-    :key="key"
+    :key="questionComponentKey"
     :is="typeManager.renderer(bank.getCurrent())"
     :question="bank.getCurrent()"
   />
