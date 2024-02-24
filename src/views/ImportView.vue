@@ -112,6 +112,20 @@ const loadFile = async () => {
     </v-row>
   </v-container>
 
+  <v-divider class="mt-4 mb-2 mx-auto" thickness="4" length="80%" />
+
+  <v-container>
+    <v-row justify="center">
+      <h2>Need help?</h2>
+    </v-row>
+    <v-row justify="center">
+      <p>
+        Check out the <a href="https://github.com/Trigary/quiz-presenter/wiki">Wiki page</a> for
+        detailed instructions.
+      </p>
+    </v-row>
+  </v-container>
+
   <v-overlay
     v-if="displayProgressSpinner"
     :model-value="displayProgressSpinner"
