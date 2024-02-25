@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@types/markdown-it": "^13.0.7",
+    "highlight.js": "^11.9.0",
     "markdown-it": "^14.0.0",
     "pinia": "^2.1.7",
     "vue": "^3.3.11",

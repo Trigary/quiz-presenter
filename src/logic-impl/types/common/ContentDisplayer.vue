@@ -7,11 +7,11 @@ const props = defineProps<{
   content: DisplayableContent
 }>()
 
-const content = ref(md.render(props.content.rawText))
+const content = ref(md.render(props.content.rawText.replace(new RegExp('\\\\n', 'g'), '\n')))
 </script>
 
 <template>
-  <div v-html="content" />
+  <div class="markdown-body" v-html="content" />
 </template>
 
 <style scoped></style>
