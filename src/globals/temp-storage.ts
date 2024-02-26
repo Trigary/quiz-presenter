@@ -1,3 +1,4 @@
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
 class Key<T> {}
 
 export type ImportErrorData = { title: string; message: string; cause: unknown | null }

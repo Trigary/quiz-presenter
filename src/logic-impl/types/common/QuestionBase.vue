@@ -50,6 +50,7 @@ const revealed = ref(false)
       </v-sheet>
     </v-row>
 
+    <!--eslint-disable-next-line vue/valid-v-for-->
     <v-row v-for="ans in shuffledAnswers" justify="center" class="mb-3">
       <v-sheet
         class="pa-2"
