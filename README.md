@@ -1,54 +1,43 @@
 # Quiz Presenter
 
-A web application for displaying your custom made flashcards, single/multiple choice questions and helping you learn.
+A web application for displaying your custom-made flashcards, single/multiple choice questions and helping you learn.
 
 The website is a single page application without any backend: the data (quizzes) are imported from URLs or files.
 
-Planned features:
+Main features:
 
 - LaTeX support
-- Markdown support (maybe)
-- Image support
+- Markdown support
+- Image embedding
+- Syntax highlighting
 
-## Example of importable data
+Try it out now: [open an example quiz by opening this URL](https://raw.githubusercontent.com/Trigary/quiz-presenter/master/example-quiz.json) and see how the app works.
+
+After importing a quiz, users work their way through the questions one at a time, in a random order.
+Incorrectly answered questions are shuffled back together with the remaining questions until the user gets them right.
+
+## Example quiz
+
+Creating a quiz is as simple as creating a JSON file with the following structure:
 
 ~~~json
 {
-  "title": "My quiz title",
+  "title": "My awesome quiz",
   "questions": [
     {
-      "type": "flash-card",
-      "question": "Question 1",
-      "answer": "Answer 1"
-    },
-    {
-      "type": "single-choice",
-      "question": "Question 2",
-      "choices": [
-        {
-          "content": "Choice 1",
-          "correct": true
-        },
-        {
-          "content": "Choice 2",
-          "correct": false
-        }
-      ]
-    },
-    {
       "type": "multiple-choice",
-      "question": "Question 3",
+      "question": "Which of these answers get rendered correctly?",
       "choices": [
         {
-          "content": "Choice 1",
+          "content": "$x^n + y^n = z^n$ has no integer solutions for $n > 2$",
           "correct": true
         },
         {
-          "content": "Choice 2",
-          "correct": false
+          "content": "Markdown is a **great** and *easy* to use ~~programming~~ language",
+          "correct": true
         },
         {
-          "content": "Choice 3",
+          "content": "```py\\n while True: \\n   print('Hello, world!') \\n```",
           "correct": true
         }
       ]
@@ -57,14 +46,27 @@ Planned features:
 }
 ~~~
 
+A more complex example can be found in the [example-quiz.json](example-quiz.json) file.
+
+For more information head please over to the [Wiki](https://github.com/Trigary/quiz-presenter/wiki).
+
 ## Development
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+The project uses the following technologies:
+
+- Node.js (version 18 or later)
+- Vite
+- TypeScript
+- Vue 3
+  - Vuetify is used for the UI components
+
+The following are the most important commands needed for development:
 
 ```sh
 npm install # Project setup
-npm run dev # Compile and hot-reload for development
-npm run build # Type-check, compile and minify for production
-npm run test:unit # Run unit tests with Vitest
-npm run lint # Lint with ESLint
+npm run dev # Start a development server with hot-reloading
+npm run format # Format the source code with Prettier
+npm run type-check # Run type checking
+npm run lint # Analyze the source code for errors, warnings
+npm run test:unit # Run unit tests
 ```

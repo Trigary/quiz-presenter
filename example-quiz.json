@@ -1,0 +1,42 @@
+{
+  "title": "My quiz title",
+  "questions": [
+    {
+      "type": "flash-card",
+      "question": "Question 1",
+      "answer": "Answer 1"
+    },
+    {
+      "type": "single-choice",
+      "question": "Question 2",
+      "choices": [
+        {
+          "content": "Choice 1",
+          "correct": true
+        },
+        {
+          "content": "Choice 2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "multiple-choice",
+      "question": "Question 3",
+      "choices": [
+        {
+          "content": "Choice 1",
+          "correct": true
+        },
+        {
+          "content": "Choice 2",
+          "correct": false
+        },
+        {
+          "content": "Choice 3",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}
