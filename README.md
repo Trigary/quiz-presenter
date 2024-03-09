@@ -2,16 +2,15 @@
 
 A web application for displaying your custom-made flashcards, single/multiple choice questions and helping you learn.
 
-The website is a single page application without any backend: the data (quizzes) are imported from URLs or files.
+**Try it out now**: [open an example quiz by opening this URL](https://trigary.github.io/quiz-presenter/?src=https%3A%2F%2Fraw.githubusercontent.com%2FTrigary%2Fquiz-presenter%2Fmaster%2Fexample-quiz.json) and see how the app works.
 
-Main features:
+## Features
 
 - LaTeX support
 - Markdown support
 - Image embedding
 - Syntax highlighting
-
-Try it out now: [open an example quiz by opening this URL](https://raw.githubusercontent.com/Trigary/quiz-presenter/master/example-quiz.json) and see how the app works.
+- Import quizzes from URLs or files
 
 After importing a quiz, users work their way through the questions one at a time, in a random order.
 Incorrectly answered questions are shuffled back together with the remaining questions until the user gets them right.
@@ -46,9 +45,11 @@ Creating a quiz is as simple as creating a JSON file with the following structur
 }
 ~~~
 
-A more complex example can be found in the [example-quiz.json](example-quiz.json) file.
+Normally you would convert a quiz to this JSON format using a simple (e.g. Python) script.
+Some example conversion scripts like that are available [here](https://github.com/Trigary/quiz-presenter/wiki)
+(TODO: improve this link).
 
-For more information head please over to the [Wiki](https://github.com/Trigary/quiz-presenter/wiki).
+For more information head please over to the [Wiki page](https://github.com/Trigary/quiz-presenter/wiki).
 
 ## Development
 
@@ -70,3 +71,5 @@ npm run type-check # Run type checking
 npm run lint # Analyze the source code for errors, warnings
 npm run test:unit # Run unit tests
 ```
+
+Contributions are welcome.
