@@ -36,7 +36,7 @@ Creating a quiz is as simple as creating a JSON file with the following structur
           "correct": true
         },
         {
-          "content": "```py\\n while True: \\n   print('Hello, world!') \\n```",
+          "content": "```py\nwhile True:\n    print('Hello, world!')\n```",
           "correct": true
         }
       ]

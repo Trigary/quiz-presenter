@@ -7,7 +7,7 @@ const props = defineProps<{
   content: DisplayableContent
 }>()
 
-const content = ref(md.render(props.content.rawText.replace(new RegExp('\\\\n', 'g'), '\n')))
+const content = ref(md.render(props.content.rawText))
 </script>
 
 <template>

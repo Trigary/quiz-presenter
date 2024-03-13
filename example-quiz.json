@@ -1,39 +1,47 @@
 {
-  "title": "My quiz title",
+  "title": "An Example Quiz",
   "questions": [
     {
       "type": "flash-card",
-      "question": "Question 1",
-      "answer": "Answer 1"
+      "question": "What are the SOLID principles of object-oriented design?",
+      "answer": "- Single **responsibility** principle: a class should have only one job\n- **Open/closed** principle: classes should be open for extension but closed for modification\n- Liskov **substitution** principle: classes should be replaceable by their children without breaking functionality\n- **Interface** segregation principle: a class shouldn't expose methods to its clients that the clients don't need\n- **Dependency** inversion principle: classes should depend on abstractions instead of directly depending on each other"
     },
     {
       "type": "single-choice",
-      "question": "Question 2",
+      "question": "How can one express logical implication ($p \\implies q$) using other logical operators?",
       "choices": [
         {
-          "content": "Choice 1",
+          "content": "$\\neg p \\lor q$",
           "correct": true
         },
         {
-          "content": "Choice 2",
+          "content": "$(p \\land q) \\lor (\\neg p \\land \\neg q)$",
           "correct": false
         }
       ]
     },
     {
       "type": "multiple-choice",
-      "question": "Question 3",
+      "question": "Which of the following cause undefined behavior in the C programming language?",
       "choices": [
         {
-          "content": "Choice 1",
+          "content": "```c\nchar* s = \"Quiz Presenter\";\ns[0] = 'K';\n```",
           "correct": true
         },
         {
-          "content": "Choice 2",
-          "correct": false
+          "content": "```c\nint arr[3] = {0, 1, 2};\nreturn arr[4];\n```",
+          "correct": true
         },
         {
-          "content": "Choice 3",
+          "content": "```c\nint val = 5;\nreturn val / 0;\n```",
+          "correct": true
+        },
+        {
+          "content": "```c\nint x = INT_MAX;\nprintf(\"%d\", x + 1);\n```",
+          "correct": true
+        },
+        {
+          "content": "```c\nint* ptr = NULL;\nprintf(\"%d\", *ptr);\n```",
           "correct": true
         }
       ]
