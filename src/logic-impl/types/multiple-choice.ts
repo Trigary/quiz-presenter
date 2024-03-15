@@ -8,7 +8,9 @@ export class MultipleChoiceQuestion implements Question {
   constructor(
     public readonly question: DisplayableContent,
     public readonly choices: MultipleChoiceAnswer[]
-  ) {}
+  ) {
+    if (choices.length === 0) throw new Error('at least one choice is required')
+  }
 }
 
 export class MultipleChoiceAnswer implements Answer {
