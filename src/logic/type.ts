@@ -14,12 +14,12 @@ export abstract class TypeParser {
   abstract parse(json: QuestionJson): Question
 
   protected assertString(v: string): string {
-    if ((v as any) instanceof String) return v as string
+    if (typeof (v as any) === 'string') return v as string
     throw new Error(`Expected string, got ${v}`)
   }
 
   protected assertBoolean(v: boolean): boolean {
-    if ((v as any) instanceof Boolean) return v as boolean
+    if (typeof (v as any) === 'boolean') return v as boolean
     throw new Error(`Expected boolean, got ${v}`)
   }
 }
