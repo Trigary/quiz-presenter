@@ -1,5 +1,5 @@
 import type { Question, QuestionType, Answer } from '@/logic/entity'
-import type { TypeParser } from '@/logic/type'
+import { TypeParser } from '@/logic/type'
 import { DisplayableContent } from '@/logic/entity'
 
 export class FlashCardQuestion implements Question {
@@ -20,12 +20,12 @@ type FlashcardJson = {
   answer: string
 }
 
-export class FlashcardParser implements TypeParser {
+export class FlashcardParser extends TypeParser {
   parse(rawJson: object): FlashCardQuestion {
     const json = rawJson as FlashcardJson
     return new FlashCardQuestion(
-      new DisplayableContent(json.question),
-      new FlashCardAnswer(new DisplayableContent(json.answer))
+      new DisplayableContent(this.assertString(json.question)),
+      new FlashCardAnswer(new DisplayableContent(this.assertString(json.answer)))
     )
   }
 }

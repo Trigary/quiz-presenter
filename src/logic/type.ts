@@ -10,8 +10,18 @@ export type QuestionJson = {
   type: QuestionType
 }
 
-export interface TypeParser {
-  parse(json: QuestionJson): Question
+export abstract class TypeParser {
+  abstract parse(json: QuestionJson): Question
+
+  protected assertString(v: string): string {
+    if ((v as any) instanceof String) return v as string
+    throw new Error(`Expected string, got ${v}`)
+  }
+
+  protected assertBoolean(v: boolean): boolean {
+    if ((v as any) instanceof Boolean) return v as boolean
+    throw new Error(`Expected boolean, got ${v}`)
+  }
 }
 
 export class TypeManager {

@@ -1,5 +1,5 @@
 import type { Question, QuestionType, Answer } from '@/logic/entity'
-import type { TypeParser } from '@/logic/type'
+import { TypeParser } from '@/logic/type'
 import { DisplayableContent } from '@/logic/entity'
 
 export class MultipleChoiceQuestion implements Question {
@@ -26,14 +26,17 @@ type MultipleChoiceJson = {
   }[]
 }
 
-export class MultipleChoiceParser implements TypeParser {
+export class MultipleChoiceParser extends TypeParser {
   parse(rawJson: object): MultipleChoiceQuestion {
     const json = rawJson as MultipleChoiceJson
-    //TODO this doesn't validate that choice.correct is a boolean, does it?
     return new MultipleChoiceQuestion(
-      new DisplayableContent(json.question),
+      new DisplayableContent(this.assertString(json.question)),
       json.choices.map(
-        (choice) => new MultipleChoiceAnswer(new DisplayableContent(choice.content), choice.correct)
+        (choice) =>
+          new MultipleChoiceAnswer(
+            new DisplayableContent(this.assertString(choice.content)),
+            this.assertBoolean(choice.correct)
+          )
       )
     )
   }

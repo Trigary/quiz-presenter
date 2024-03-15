@@ -8,6 +8,7 @@ import router from '@/plugins/router'
 import { importErrorKey, setTemp } from '@/globals/temp-storage'
 import { urlRule } from '@/utils/rules'
 import { copyToClipboard } from '@/utils/clipboard'
+import type { Question } from '@/logic/entity'
 
 const displayProgressSpinner = ref(false)
 
@@ -17,11 +18,16 @@ const handleError = (title: string, message: string, cause: unknown | null = nul
   router.push('/import-error')
 }
 
+const parseJson = (json: QuizJson): [string, Question[]] => {
+  const title = json.title
+  if (typeof (title as any) !== 'string') throw new Error('Title is not a string')
+  const questions = json.questions.map((v) => typeManager.parse(v))
+  return [title, questions]
+}
+
 const loadJson = (rawJson: string) => {
   try {
-    const json = JSON.parse(rawJson) as QuizJson
-    const title = json.title
-    const questions = json.questions.map((v) => typeManager.parse(v))
+    const [title, questions] = parseJson(JSON.parse(rawJson) as QuizJson)
     useDataStore().initialize(title, questions)
     router.push('/quiz')
   } catch (e) {
