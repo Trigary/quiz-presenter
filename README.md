@@ -3,6 +3,7 @@
 A web application for displaying your custom-made flashcards, single/multiple choice questions and helping you learn.
 
 **Try it out now**: [open an example quiz by opening this URL](https://trigary.github.io/quiz-presenter/?src=https%3A%2F%2Fraw.githubusercontent.com%2FTrigary%2Fquiz-presenter%2Fmaster%2Fexample-quiz.json) and see how the app works.
+The home page of the app is available at https://trigary.github.io/quiz-presenter/.
 
 ## Features
 
@@ -11,6 +12,7 @@ A web application for displaying your custom-made flashcards, single/multiple ch
 - Image embedding
 - Syntax highlighting
 - Import quizzes from URLs or files
+- Multiple question types: flashcard, single choice, multiple choice
 
 After importing a quiz, users work their way through the questions one at a time, in a random order.
 Incorrectly answered questions are shuffled back together with the remaining questions until the user gets them right.
@@ -73,3 +75,19 @@ npm run test:unit # Run unit tests
 ```
 
 Contributions are welcome.
+
+### Project structure
+
+- `public/`: static files that don't get processed by Webpack (e.g. favicons, robots.txt)
+- `src/`: main source code
+  - `assets/`: most static files (e.g. images, stylesheets)
+  - `components/`: generic Vue components used throughout the app
+  - `globals/`: Vue data stores and various global state holders
+  - `logic/`: business logic of the quiz presenting, excluding the implementations
+  - `logic-impl/`: implementations of the business logic: specific quiz types, next question choosing strategies, etc.
+  - `plugins/`: Vue plugins, e.g. router
+  - `utils/`: utility functions
+  - `views/`: Vue components that represent entire pages
+  - `App.vue`, `main.ts`: the main entry point of the app
+
+Additionally, the project root contains several configuration files.
