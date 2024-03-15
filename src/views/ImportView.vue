@@ -22,6 +22,7 @@ const parseJson = (json: QuizJson): [string, Question[]] => {
   const title = json.title
   if (typeof (title as any) !== 'string') throw new Error('Title is not a string')
   const questions = json.questions.map((v) => typeManager.parse(v))
+  if (questions.length === 0) throw new Error('At least one question is required')
   return [title, questions]
 }
 

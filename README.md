@@ -48,8 +48,7 @@ Creating a quiz is as simple as creating a JSON file with the following structur
 ~~~
 
 Normally you would convert a quiz to this JSON format using a simple (e.g. Python) script.
-Some example conversion scripts like that are available [here](https://github.com/Trigary/quiz-presenter/wiki)
-(TODO: improve this link).
+Some example conversion scripts like that are available [here](https://github.com/Trigary/quiz-presenter/wiki/Conversion-from-other-data-formats).
 
 For more information head please over to the [Wiki page](https://github.com/Trigary/quiz-presenter/wiki).
 
