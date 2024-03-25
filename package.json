@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/markdown-it": "^13.0.7",
     "highlight.js": "^11.9.0",
-    "katex": "^0.16.9",
+    "katex": "^0.16.10",
     "markdown-it": "^14.0.0",
     "markdown-it-texmath": "^1.0.0",
     "pinia": "^2.1.7",
